@@ -8,6 +8,8 @@ interface IUserRequest {
     admin?: boolean;
     password: string;
     id: string;
+
+
 }
 
 class AlterUserService {

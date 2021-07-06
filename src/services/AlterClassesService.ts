@@ -8,17 +8,18 @@ interface IClassesRequest{
     id_modules: string;
     date: Date;
     id: string;
+    description: string;
 }
 
 
 class AlterClassesService {
-    async execute({name, id, date, id_modules, id_users}: IClassesRequest){
+    async execute({name, id, date, id_modules, id_users, description}: IClassesRequest){
         const alterClassesRepository = getCustomRepository(ClassesRepositories)
 
         const alterClasses = await alterClassesRepository.findOne(id);
 
         if(alterClasses){
-            alterClassesRepository.merge(alterClasses, { name, id, date, id_modules, id_users});
+            alterClassesRepository.merge(alterClasses, { name, id, date, description, id_modules, id_users});
             const results = await alterClassesRepository.save(alterClasses)
             return results;
         }

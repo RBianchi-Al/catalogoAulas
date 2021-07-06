@@ -14,6 +14,9 @@ class Classes {
   name: string;
 
   @Column()
+  description: string;
+
+  @Column()
   id_users: string;
 
   @Column()

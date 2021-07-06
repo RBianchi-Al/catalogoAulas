@@ -29,6 +29,10 @@ export class CreateClasses1625088688354 implements MigrationInterface {
                         name: "date",
                         type: "timestamp"
                     },
+                    {
+                        name: "description",
+                        type: "varchar"
+                    },
                     { 
                         name: "created_at",
                         type: "timestamp",

@@ -8,6 +8,7 @@ interface IClassesRequest{
     id_users: string;
     id_modules: string;
     date: Date;
+    description: string;
 }
 
 class CreateClassesService{
@@ -15,7 +16,8 @@ class CreateClassesService{
         name,
         id_users,
         id_modules,
-        date
+        date,
+        description
     }: IClassesRequest){
 
         const classesRepository = getCustomRepository(ClassesRepositories);
@@ -33,7 +35,8 @@ class CreateClassesService{
            date,
            id_modules,
            id_users,
-           name
+           name,
+           description
         })
 
         await classesRepository.save(classes)

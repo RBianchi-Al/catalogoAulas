@@ -4,7 +4,7 @@ import { ModulesRepository } from "../repositories/ModulesRepositories";
 
 class CreateModuleService{
 
-    async execute(name: string){
+    async execute(name: string, description: string){
         const modulesRepositories = getCustomRepository(ModulesRepository)
 
         if(!name) {
@@ -12,7 +12,8 @@ class CreateModuleService{
         }
 
         const moduleAlreadyExists = await modulesRepositories.findOne({
-            name
+            name, 
+            description
         })
 
         if(moduleAlreadyExists){
@@ -20,7 +21,8 @@ class CreateModuleService{
         }
 
         const module = modulesRepositories.create({
-            name
+            name,
+            description
         });
      
         await modulesRepositories.save(module);

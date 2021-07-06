@@ -5,8 +5,8 @@ class AlterClassesController{
 
     async handle(request: Request, response: Response){
         const classes = new AlterClassesService()
-        const {name, id, date, id_modules, id_users} = request.body;
-        const alterClasses = await classes.execute({name, id, date, id_modules, id_users})
+        const {name, id, date, id_modules, id_users, description} = request.body;
+        const alterClasses = await classes.execute({name, id, date, id_modules, id_users, description})
         return response.json(alterClasses)    
     
     }  

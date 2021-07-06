@@ -6,7 +6,7 @@ class CreateClassesController{
 
     async handle(request: Request, response: Response){
 
-        const {id_users, id_modules, date} = request.body
+        const {id_users, id_modules, date, description, name} = request.body
        
         const {user_id} = request;
 
@@ -14,9 +14,10 @@ class CreateClassesController{
 
         const classes = await createClassesServive.execute({
             id_modules,
-            name: user_id,
+            name,
             id_users,
-            date
+            date,
+            description
         })
 
         return response.json(classes)

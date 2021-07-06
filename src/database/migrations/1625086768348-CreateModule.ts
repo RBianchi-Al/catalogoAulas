@@ -13,6 +13,10 @@ export class CreateModule1625086768348 implements MigrationInterface {
                         isPrimary: true,
                     },
                     {
+                        name: "description",
+                        type: "varchar"
+                    },
+                    {
                         name: "name",
                         type: "varchar"
                     },

@@ -24,11 +24,11 @@ const createUserController = new CreateUserController();
 const deleteUserController = new DeleteUsersControllers();
 const alterUsersControllers = new AlterUserController();
 
-router.get("/users", listUsersControllers.handle);
-router.post("/users", createUserController.handle);
-router.post("/login", authenticateUserController.handle);
-router.delete("/users/:id", deleteUserController.deleteUser);
-router.put("/users/:id", alterUsersControllers.handle);
+router.get("/api/users", listUsersControllers.handle);
+router.post("/api/users", createUserController.handle);
+router.post("/api/login", authenticateUserController.handle);
+router.delete("/api/users/:id", deleteUserController.deleteUser);
+router.put("/api/users/:id", alterUsersControllers.handle);
 
 // Modules
 const createModulesControllers = new CreateModulesController();
@@ -36,10 +36,10 @@ const listModulesControllers = new ListModulesControllers();
 const deleteModulesControllers = new DeleteModulesControllers();
 const alterModulesControllers = new AlterModulesController();
 
-router.post("/modules", createModulesControllers.handle);
-router.get("/modules", listModulesControllers.handle);
-router.delete("/modules/:id", deleteModulesControllers.handle);
-router.put("/modules/:id", alterModulesControllers.handle);
+router.post("/api/modules", createModulesControllers.handle);
+router.get("/api/modules", listModulesControllers.handle);
+router.delete("/api/modules/:id", deleteModulesControllers.handle);
+router.put("/api/modules/:id", alterModulesControllers.handle);
 
 // Classes
 const createClassesControllers = new CreateClassesController();
@@ -47,10 +47,10 @@ const listClassesControllers = new ListClassesControllers();
 const deleteClassesControllers = new DeleteClassesControllers();
 const alterClassesControllers = new AlterClassesController();
 
-router.post("/classes", ensureAuthenticated, createClassesControllers.handle);
-router.get("/classes", listClassesControllers.handle );
-router.delete("/classes/:id", deleteClassesControllers.handle);
-router.put("/classes/:id", alterClassesControllers.handle); 
+router.post("/api/classes", createClassesControllers.handle);
+router.get("/api/classes", listClassesControllers.handle );
+router.delete("/api/classes/:id", deleteClassesControllers.handle);
+router.put("/api/classes/:id", alterClassesControllers.handle); 
 
 
 export {router}

@@ -6,10 +6,10 @@ class CreateModulesController {
 
     async handle(request: Request, response: Response){
 
-        const {name} = request.body
+        const {name, description} = request.body
         const createModuleService = new CreateModuleService()
 
-        const module = await createModuleService.execute(name);
+        const module = await createModuleService.execute(name, description);
         return response.json(module)
     }
 }
