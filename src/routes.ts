@@ -47,7 +47,7 @@ const listClassesControllers = new ListClassesControllers();
 const deleteClassesControllers = new DeleteClassesControllers();
 const alterClassesControllers = new AlterClassesController();
 
-router.post("/api/classes", createClassesControllers.handle);
+router.post("/api/classes",ensureAdmin, ensureAuthenticated, createClassesControllers.handle); //com autenticação!
 router.get("/api/classes", listClassesControllers.handle );
 router.delete("/api/classes/:id", deleteClassesControllers.handle);
 router.put("/api/classes/:id", alterClassesControllers.handle); 
